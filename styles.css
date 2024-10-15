@@ -115,8 +115,8 @@ body {
 }
 
 .header .user-info .notification-icon {
-    font-size: 20px; /* Ukuran ikon notifikasi */
-    margin-right: 20px; /* Memberikan jarak antara notifikasi dan gambar profil */
+    font-size: 20px; 
+    margin-right: 20px; 
     cursor: pointer;
     position: relative;
 }
