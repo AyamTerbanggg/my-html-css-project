@@ -1,0 +1,286 @@
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    background-color: #f7f8fc;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #1f1f2e;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .logo {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+
+}
+
+.sidebar .menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.sidebar .menu-item i {
+    margin-right: 10px;
+    padding: 15px 0;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+.sidebar .menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #a3a3c2;
+}
+
+.sidebar .logout {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 100%;
+}
+
+.sidebar .logout i {
+    margin-right: 10px;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header .search-bar {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.header .search-bar input {
+    border: none;
+    outline: none;
+    margin-left: 10px;
+}
+
+.header .user-info {
+    display: flex;
+    align-items: center;
+}
+
+.header .user-info img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.header .user-info i {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.header .user-info .notification-icon {
+    font-size: 20px; /* Ukuran ikon notifikasi */
+    margin-right: 20px; /* Memberikan jarak antara notifikasi dan gambar profil */
+    cursor: pointer;
+    position: relative;
+}
+
+.header .user-info .notification-icon::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background-color: #f44336;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: -5px;
+} 
+
+.overview {
+    display: flex;
+    justify-content: space-between;
+}
+
+.overview .left-panel .analytics {
+    margin-top: 20px;
+}
+
+.overview .left-panel .analytics h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column;
+}
+
+.overview .left-panel .analytics canvas {
+    max-width: 300px;
+    max-height: 300px; 
+    width: 100%;
+    height: auto;
+    padding: 20px;
+}
+
+.overview .left-panel {
+    width: 30%;
+    background-color: rgb(226, 226, 226);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.overview .left-panel h2 {
+    margin-top: 0;
+}
+
+.overview .left-panel .kpi {
+    margin-bottom: 20px;
+    font-size: 10px;
+}
+
+.overview .left-panel .kpi h3 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.overview .left-panel .kpi .value {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 5px 0;
+}
+
+.overview .left-panel .kpi .change {
+    display: flex;
+    align-items: center;
+    color: #4caf50;
+    padding: 5px;
+    border-bottom: 1px solid #919191;
+}
+
+.overview .left-panel .kpi .change.negative {
+    color: #f44336;
+    border-bottom: 0px;
+}
+
+.overview .left-panel .analytics {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.overview .left-panel .analytics h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.overview .left-panel .analytics .chart {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.overview .right-panel {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+}
+
+.overview .right-panel .growth {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.overview .right-panel .growth h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.overview .right-panel .growth .chart {
+    margin-top: 20px;
+    width: 100px;
+    max-width: 300px;
+    max-height: 300px; 
+    width: 100%;
+}
+
+.overview .right-panel .recent-activity {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.overview .right-panel .recent-activity h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.overview .right-panel .recent-activity table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.overview .right-panel .recent-activity table th,
+.overview .right-panel .recent-activity table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.overview .right-panel .recent-activity table th {
+    font-weight: 600;
+}
+
+.overview .right-panel .recent-activity table td img {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}

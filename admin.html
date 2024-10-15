@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the CSS file -->
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo">profitize</div>
+        <div class="menu-item"><i class="fas fa-th-large"></i> Overview</div>
+        <div class="menu-item"><i class="fas fa-chart-line"></i> Growth</div>
+        <div class="menu-item"><i class="fas fa-users"></i> Customers</div>
+        <div class="menu-item"><i class="fas fa-file-alt"></i> Reports</div>
+        <div class="menu-item"><i class="fas fa-life-ring"></i> Support</div>
+        <div class="menu-item"><i class="fas fa-cog"></i> Settings</div>
+        <div class="logout"><i class="fas fa-sign-out-alt"></i> Log out</div>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input placeholder="Search" type="text" />
+            </div>
+            <div class="user-info">
+                <i class="fas fa-bell notification-icon"></i>
+                <img alt="User profile picture" height="40" src="https://storage.googleapis.com/a1aa/image/NbnWGKTpgr7GE92me2UnVbNi71wYzf7gneql8w8CaxTQLfbOB.jpg" width="40" />
+                <span>Eva Murphy</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+
+        <div class="overview">
+            <div class="left-panel">
+                <h2>Overview</h2>
+                <div class="kpi">
+                    <h3>KPIs</h3>
+                    <p>Current MRR</p>
+                    <div class="value">$855.4k</div>
+                    <div class="change"><i class="fas fa-arrow-up"></i> 15%</div>
+                </div>
+                <div class="kpi">
+                    <p>Current Customers</p>
+                    <div class="value">127,754</div>
+                    <div class="change"><i class="fas fa-arrow-up"></i> 17%</div>
+                </div>
+                <div class="kpi">
+                    <p>Active Customers</p>
+                    <div class="value">73.57%</div>
+                    <div class="change negative"><i class="fas fa-arrow-down"></i> 21%</div>
+                </div>
+                <div class="analytics">
+                    <h3>Analytics</h3>
+                    <canvas id="analyticsChart" width="150" height="150"></canvas>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <div class="growth">
+                    <h3>This Year Growth</h3>
+                    <canvas id="growthChart" width="100" height="50"></canvas>
+                </div>
+                <div class="recent-activity">
+                    <h3>Recent Activity</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Customer</th>
+                                <th>Status</th>
+                                <th>Order number</th>
+                                <th>Retained</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <img alt="Profile picture of Jenny Wilson" height="30" src="https://storage.googleapis.com/a1aa/image/YILW4C8XXeXIHCISgnrznA5VpiN0Fp3bfnaNJ8SKAdislfNnA.jpg" width="30" />
+                                    Jenny Wilson
+                                </td>
+                                <td>New Customer</td>
+                                <td>#0038160</td>
+                                <td>1 min ago</td>
+                                <td>$123.40</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img alt="Profile picture of Guy Hawkins" height="30" src="https://storage.googleapis.com/a1aa/image/XPwhh5SXfAVKfEt9Ffptd7y4GeCjwVDhtCRlfxKYMyQHu83cC.jpg" width="30" />
+                                    Guy Hawkins
+                                </td>
+                                <td>Signed up</td>
+                                <td>#0038159</td>
+                                <td>5 min ago</td>
+                                <td>$79.89</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var ctx = document.getElementById('analyticsChart').getContext('2d');
+        var analyticsChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Sales', 'Distribute', 'Returns'],
+                datasets: [{
+                    label: 'Analytics',
+                    data: [55.5, 33.5, 11],
+                    backgroundColor: ['#b19cd9', '#b2f0a8', '#333'],
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'bottom' }
+                }
+            }
+        });
+
+        var ctx = document.getElementById('growthChart').getContext('2d');
+        var growthChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+                datasets: [
+                    {
+                        label: '2021',
+                        data: [30000, 60000, 40000, 30000, 25000, 40000, 50000, 30000],
+                        backgroundColor: 'rgba(0, 0, 0, 1)',
+                    },
+                    {
+                        label: '2022',
+                        data: [45000, 70000, 50000, 40000, 47000, 50000, 60000, 47000],
+                        backgroundColor: 'rgba(0, 0, 255, 0.5)',
+                        borderColor: 'rgba(0, 0, 255, 1)',
+                        borderWidth: 1,
+                        borderDash: [5, 5],
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return '$' + value.toLocaleString();
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.raw !== null) {
+                                    label += '$' + context.raw.toLocaleString();
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
